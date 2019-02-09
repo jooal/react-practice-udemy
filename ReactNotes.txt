@@ -1,0 +1,89 @@
+React:
+-properties are liek variables attached to classes/objects
+-methods are lke functions attached to classes/objects 
+-constructor is a default function that allows you to add properties
+-add to any class
+-optimize code, use next gen javascript features
+- render spits html onto the screen
+-props.children refers to anythign inbetween the jsx tags
+-when using class components use this.props 
+-stateful vs stateless
+    -cant use state in const function 
+    -should use const function as much as possible, using too many states will create chaos
+    -states should go in app.js ( a container file), state change should happen in Appjs
+    -bind will bind this from new state to this.state
+-toggle methods hide info - Rendering Content Conditionally
+    -wrap info you want to hide in a div and wrap in curlyboys, use boolean ex: this.state.data ? 
+    -create a toggle handler with arrow function 
+    - set another state in state: showData: false
+    -
+
+
+
+
+ES6
+-let is same as var, and const is always constant cannot be changed
+-arrow functions take away problem with "this"
+-use jsbin.com to practice code 
+-if you are extending a class you need super contstructor, it initializes parent classexample below:
+
+
+class Human {
+    constructor () {
+        this.gender="male";
+    }
+    printGender() {
+        console.log(this.gender);
+    }
+}
+
+class Person extends Human {
+    constructor() {
+        super();
+        this.name="Max";
+    }
+    printMyName() {
+        console.log(this.name);
+    }
+}
+
+const erson = new Person();
+person.printMyName();
+person.printGender();
+
+Spread & Rest Operators:
+- "..." 
+-spread used to split up array elements or obejct properties 
+    -ex: const newArray = [...oldArray, 1, 2] takes oldArray and adds 1 and 2
+    -ex const newObject = {...oldObject, newProp: 5} adds 5, and overrides any previous newProp
+-rest used to merge list offunction arguements into an array
+    -ex: const filter = (...args) => {
+        return args.filter(el => el === 1); return true/false if element is equal to 1
+    }
+    console.log(filter(1, 2, 3)); --> shows 1
+
+Destructuring: 
+-easily extract array elements or object properties and store them in variables for array and objects 
+    -ex: [a, b] = ['Hello', 'Max'] a=hello, b = max
+    -Array destructuring : 
+        const number = [1, 2, 3];
+        [num1, , num3] = numbers;
+        console.log(num1, num3) --> 1, 3
+    -Object destructuring: 
+        {name} --> same way but use curly brackets
+    -if you have const = person = {
+        name: 'max'
+    };
+    const secondPerson = {
+        ...person  //here we are copying the object, not hte pointer. if we did secondPerson = person then changes the whole thing
+    }'
+    person.name="manu"
+    console.log(secondPerson) --> stillg ives Max 
+
+Map: 
+const numbers = [1, 2, 3];
+const doubleNumArray = numbers.map((num) => {
+    return num *2
+}) 
+console.log(numbers) // spits out 1, 2, 3
+console.log(doubleNumArray) // 2, 3, 6
